@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Form, Container, Button } from './FormAddContact.styled';
 import { useDispatch } from 'react-redux';
 import * as actions from '../../redux/contacts/actions';
@@ -9,10 +9,6 @@ export default function FormAddContact() {
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
   const contacts = useSelector(state => state.items);
-
-  useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
 
   const handleContactInput = ({ currentTarget }) => {
     const { value, name } = currentTarget;
